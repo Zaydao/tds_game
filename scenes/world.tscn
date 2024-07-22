@@ -38,8 +38,7 @@ position = Vector2(458, 252)
 [node name="Marker2D" type="Marker2D" parent="."]
 script = ExtResource("4_28ocj")
 
-[node name="enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ypolq")]
-player = NodePath("../player")
+[node name="enemy" parent="." instance=ExtResource("2_ypolq")]
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
