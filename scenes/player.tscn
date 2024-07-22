@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5xv15n2tffn4"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_x5jj0"]
+[ext_resource type="PackedScene" uid="uid://dy2mw7dd47j5q" path="res://scenes/gun.tscn" id="2_5ngan"]
+
+[node name="player" type="CharacterBody2D"]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_x5jj0")
+
+[node name="gun" parent="." instance=ExtResource("2_5ngan")]
+position = Vector2(40, 0)
+
+[node name="player_polygon" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-40, -40, 40, -40, 40, 16, 88, 16, 88, 32, 40, 32, 40, 40, -40, 40)
+
+[node name="Camera2D" type="Camera2D" parent="."]

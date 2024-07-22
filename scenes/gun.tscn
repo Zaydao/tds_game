@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy2mw7dd47j5q"]
+
+[ext_resource type="Script" path="res://scripts/gun.gd" id="1_foalt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80siq"]
+size = Vector2(44, 20)
+
+[node name="gun" type="Node2D"]
+script = ExtResource("1_foalt")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.0758848, 0.0592616, 0.0150499, 1)
+polygon = PackedVector2Array(0, -8, 40, -8, 40, 8, 0, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Polygon2D"]
+position = Vector2(18, 0)
+shape = SubResource("RectangleShape2D_80siq")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(32, 0)
+
+[node name="can_shoot" type="Timer" parent="."]
+wait_time = 0.596
+one_shot = true
+
+[connection signal="timeout" from="can_shoot" to="." method="_on_can_shoot_timeout"]
