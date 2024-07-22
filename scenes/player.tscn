@@ -5,6 +5,8 @@
 
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(0.6, 0.6)
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_x5jj0")
 
 [node name="gun" parent="." instance=ExtResource("2_5ngan")]
