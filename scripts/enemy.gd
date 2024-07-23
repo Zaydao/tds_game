@@ -11,8 +11,7 @@ func _ready():
 	player = get_node("/root/world/player") as Node2D
 	if player:
 		makepath()
-	else:
-		print("Player node is not found at path: /root/world/player")
+	
 
 func take_damage():
 	hp -= Global.bullet1_dm
