@@ -7,7 +7,12 @@ var friction = 900
 var angle
 var rotation_speed = 20
 
+var hp 
+
 var input = Vector2.ZERO
+
+func _ready():
+	hp = Global.player_hp
 
 func get_input():
 	input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
@@ -21,6 +26,10 @@ func _physics_process(delta):
 	angle = (get_global_mouse_position() - global_position).angle()
 	if angle:
 		global_rotation = lerp_angle(global_rotation, angle, delta *rotation_speed)
+	
+	#verifi is player have hp
+	if hp <= 0:
+		queue_free()
 
 func player_movment(delta):
 	input = get_input()
@@ -35,4 +44,6 @@ func player_movment(delta):
 		velocity = velocity.limit_length(max_speed)
 	move_and_slide()
 		
-	
+func take_damage():
+	hp -= Global.enemy1_dm
+	print(hp)
