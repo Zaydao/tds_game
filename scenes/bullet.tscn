@@ -6,7 +6,9 @@
 radius = 17.0294
 
 [node name="bullet" type="Area2D"]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.5, 0.5)
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_u3a3m")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]

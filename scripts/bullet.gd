@@ -8,6 +8,7 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	queue_free()
 	if body.is_in_group("enemy"):
 		body.take_damage()
 		queue_free()

@@ -6,7 +6,6 @@
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(0.6, 0.6)
 collision_layer = 2
-collision_mask = 3
 script = ExtResource("1_x5jj0")
 
 [node name="gun" parent="." instance=ExtResource("2_5ngan")]
@@ -17,6 +16,6 @@ polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
-polygon = PackedVector2Array(-40, -40, 40, -40, 40, 16, 88, 16, 88, 32, 40, 32, 40, 40, -40, 40)
+polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
 
 [node name="Camera2D" type="Camera2D" parent="."]
