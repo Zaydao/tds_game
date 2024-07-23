@@ -16,6 +16,7 @@ polygon = PackedVector2Array(0, 0, 0, -5, 4, -8, 12, 0, 4, 8, 0, 6)
 polygon = PackedVector2Array(0, -5, 4, -8, 11.6667, 0, 4, 8, 0, 6)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
 debug_enabled = true
 debug_path_custom_point_size = 8.76
 
