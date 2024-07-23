@@ -6,7 +6,8 @@ const rotation_speed = 8
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var attack_timer := $AttackTimer  # Asigură-te că ai un Timer pentru atac
 
-var hp
+var min_hp = 0
+var hp = 3
 var player: Node2D
 
 var player_in_range = false
