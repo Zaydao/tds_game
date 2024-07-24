@@ -6,6 +6,8 @@ const rotation_speed = 8
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var attack_timer := $AttackTimer  # Asigură-te că ai un Timer pentru atac
 
+@export var particle_path : PackedScene
+
 var min_hp = 0
 var hp = 3
 var player: Node2D
@@ -24,6 +26,10 @@ func take_damage():
 	
 	if hp <= 0:
 		queue_free()
+		var particle = particle_path.instantiate()
+		particle.position = global_position
+		get_tree().current_scene.add_child(particle)
+		particle.emitting = true
 
 func _physics_process(_delta: float) -> void:
 	if player and is_instance_valid(player) and player.is_inside_tree():
@@ -66,7 +72,6 @@ func attack():
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		player_in_range = true
-		can_attack = true
 		attack()
 		
 
