@@ -9,9 +9,9 @@ direction = Vector3(0, 0, 0)
 spread = 180.0
 flatness = 0.077
 initial_velocity_min = 33.71
-initial_velocity_max = 122.47
+initial_velocity_max = 201.12
 gravity = Vector3(0, 0, 0)
-scale_max = 23.47
+scale_max = 30.0
 
 [node name="particle_e" type="GPUParticles2D"]
 self_modulate = Color(0.87447, 0, 0.243112, 1)

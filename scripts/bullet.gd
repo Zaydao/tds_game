@@ -14,6 +14,8 @@ func _on_body_entered(body):
 	particle.position = global_position
 	get_tree().current_scene.add_child(particle)
 	particle.emitting = true
+	particle.rotation = direction.angle() + PI
+	
 	
 	
 	queue_free()
