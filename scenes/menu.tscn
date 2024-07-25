@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://d064jg6pwhdin"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_ymg0g"]
+
+[sub_resource type="SystemFont" id="SystemFont_djhe6"]
+font_names = PackedStringArray("Impact")
+font_weight = 450
+font_stretch = 150
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdri3"]
+bg_color = Color(0.905882, 0, 0.356863, 1)
+border_width_bottom = 10
+border_color = Color(0.560784, 0.0980392, 0.0117647, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sa4l"]
+bg_color = Color(0.714272, 0, 0.149123, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plhw4"]
+bg_color = Color(0.905882, 0, 0.356863, 1)
+border_width_bottom = 15
+border_color = Color(0.560974, 0.099328, 0.0111694, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 15
+
+[sub_resource type="Theme" id="Theme_bmswq"]
+Button/font_sizes/font_size = 50
+Button/styles/focus = SubResource("StyleBoxFlat_qdri3")
+Button/styles/hover = SubResource("StyleBoxFlat_6sa4l")
+Button/styles/normal = SubResource("StyleBoxFlat_plhw4")
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 192.0
+offset_top = -8.0
+offset_right = -192.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ymg0g")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 44
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0, 0.356863, 1)
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = SubResource("SystemFont_djhe6")
+theme_override_font_sizes/font_size = 57
+text = "GAME TITLE"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_bmswq")
+text = "Play"
+
+[node name="Option" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_bmswq")
+text = "Option"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_bmswq")
+text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
